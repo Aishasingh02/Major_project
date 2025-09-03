@@ -1,0 +1,30 @@
+
+<% layout('/layouts/boilerplate') -%>
+<%=success%>
+<body>
+  <br>
+  <h4>All Listings</h4>
+
+  <!-- Bootstrap Card Grid -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for (let listing of allListings) { %>
+      <div class="col">
+        <div class="card listing-card">
+          <a href="/listings/<%= listing.id %>">
+            <img src="<%= listing.image.url %>" 
+                 class="card-img-top" 
+                 alt="listing image" 
+                 style="height: 28rem;">
+                 <div class="card-img-overlay"> abc</div>
+          </a>
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %></b><br>
+              &#8377 <%= listing.price.toLocaleString("en-IN") %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</body>
